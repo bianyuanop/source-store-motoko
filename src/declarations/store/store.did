@@ -1,0 +1,17 @@
+type Store = 
+ service {
+   admin_count: () -> (int) query;
+   commody_count: () -> (nat) query;
+   get_commodies: (MerchantId) -> (vec nat) query;
+   get_commody: (Id) -> (text) query;
+   get_merchant_info: (MerchantId) -> (text) query;
+   merchant_commody_count: (MerchantId) -> (nat) query;
+   merchant_count: () -> (int) query;
+   put: (Info, MerchantId, text) -> (bool, nat);
+   put_admin: (text, vec nat32) -> (int);
+   put_merchant: (text, text, text, int, text) -> (int);
+ };
+type MerchantId = nat;
+type Info = text;
+type Id = nat;
+service : () -> Store
